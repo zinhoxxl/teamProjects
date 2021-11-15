@@ -30,7 +30,7 @@ pageEncoding="UTF-8"%> <!-- 페이지 전체의 속성을 정의 -->
 	        int result = userDAO.join(user);
 	        if (result == -1) {
 	        	PrintWriter script = response.getWriter();
-	        	script.println("<script>");
+	        	script.println("<script>"); 
 	        	script.println("alert('이미 존재하는 아이디 입니다.')");
 	        	script.println("history.back()");
 	        	script.println("</script>");
