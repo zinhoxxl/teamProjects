@@ -17,7 +17,18 @@ pageEncoding="UTF-8"%> <!-- 페이지 전체의 속성을 정의 -->
 <title>JSP 게시판 웹 사이트</title>
 </head>
 <body>
-     <%
+     <% 
+        String userID = null;
+	    if(session.getAttribute("userID")!= null) {
+	    	userID = (String) session.getAttribute("userID");  
+	     }
+	    if(userID != null) {
+	    	PrintWriter script = response.getWriter();
+        	script.println("<script>");
+        	script.println("alert('이미 로그인 되어있습니다.')");
+        	script.println("location.href = 'main.jsp'");
+        	script.println("</script>");
+	    }
         if (user.getUserID() == null || user.getUserPassword() == null || user.getUserName() == null 
             || user.getUserGender() == null || user.getUserEmail() == null) {
        	    PrintWriter script = response.getWriter();
@@ -36,12 +47,13 @@ pageEncoding="UTF-8"%> <!-- 페이지 전체의 속성을 정의 -->
 	        	script.println("</script>");
 	        } 
 	        else {
+	        	session.setAttribute("userID", user.getUserID());
 	        	PrintWriter script = response.getWriter();
 	        	script.println("<script>");
 	        	script.println("location.href = 'main.jsp'");
 	        	script.println("</script>");
            }
          }
-     %>
+     %> 
 </body>
 </html>

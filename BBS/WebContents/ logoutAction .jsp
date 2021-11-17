@@ -1,15 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+pageEncoding="UTF-8"%> <!-- 페이지 전체의 속성을 정의 -->
+ <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>JSP 게시판 웹 사이트</title>
 </head>
 <body>
-   <script>
-      location.href = 'main .jsp';
-   </script>
-
+     <%
+       session.invalidate();      
+     %>
+     <script>
+       location.href = 'main.jsp'; 
+     </script>
 </body>
-</html>
+</html> 

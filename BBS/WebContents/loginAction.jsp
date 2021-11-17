@@ -32,9 +32,21 @@ pageEncoding="UTF-8"%> <!-- 페이지 전체의 속성을 정의 -->
 </head>
 <body>
      <%
+        String userID = null;
+	    if(session.getAttribute("userID")!= null) {
+	    	userID = (String) session.getAttribute("userID");  
+	     }
+	    if(userID != null) {
+	    	PrintWriter script = response.getWriter();
+        	script.println("<script>");
+        	script.println("alert('이미 로그인 되어있습니다.')");
+        	script.println("location.href = 'main.jsp'");
+        	script.println("</script>");
+	    }
         UserDAO userDAO = new UserDAO();
         int result = userDAO.login(user.getUserID(), user.getUserPassword());
         if (result == 1) {
+        	session.setAttribute("userID", user.getUserID());  
         	PrintWriter script = response.getWriter();
         	script.println("<script>");
         	script.println("location.href = 'main.jsp'");
