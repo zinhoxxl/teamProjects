@@ -36,8 +36,8 @@ public class BbsDAO {
 		return "";
 		}
 		
-//		public Date getDate() {
-//			String SQL ="SELECT to_char(sysdate, 'YYYY-MM-DD HH24:MI:SS') today FROM dual;";
+//	     public Date getDate() {
+//		 String SQL ="SELECT to_char(sysdate, 'YYYY-MM-DD HH24:MI:SS') today FROM dual;";
 //			try {
 //				PreparedStatement pstmt = conn.prepareStatement(SQL);
 //				rs = pstmt.executeQuery();
