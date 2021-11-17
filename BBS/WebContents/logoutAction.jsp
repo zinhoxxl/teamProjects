@@ -7,11 +7,11 @@ pageEncoding="UTF-8"%> <!-- 페이지 전체의 속성을 정의 -->
 <title>JSP 게시판 웹 사이트</title>
 </head>
 <body>
-     <%
-       session.invalidate();      
-     %>
-     <script>
-       location.href = 'main.jsp'; 
-     </script>
+   <%
+      session.invalidate();
+   %>
+   <script>
+      location.href = 'main.jsp';
+   </script>
 </body>
 </html> 
