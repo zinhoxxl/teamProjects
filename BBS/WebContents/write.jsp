@@ -77,6 +77,7 @@
 	</nav>
 	<div class="container">
 	  <div class="row">
+	    <!-- form 태그만 봐도 될듯 -->
         <form method="post" action="writeAction.jsp">
           <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 	       <thead>

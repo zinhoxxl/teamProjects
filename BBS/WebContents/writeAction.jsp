@@ -21,10 +21,10 @@
 
 	<% 
 		String userID = null;
-		if(session.getAttribute("userID") != null) {
+		if(session.getAttribute("userID") != null) { //로그인이되있으면 userID 에 넣어줌
 			userID =(String) session.getAttribute("userID");
 		}
-		if(userID ==null){
+		if(userID ==null){ //로그인 되있을 때 게시글 작성 가능
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('로그인을 하세요.')");
@@ -46,7 +46,7 @@
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
 					script.println("alert('글쓰기에 실패 했습니다.')");
-					script.println("history.back()");
+					script.println("history.back()"); //다시 write 로 빠꾸
 					script.println("</script>");
 			
 				}else {

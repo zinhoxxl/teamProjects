@@ -17,7 +17,7 @@
 		String userID = null;
 		if(session.getAttribute("userID") != null){
 		userID = (String) session.getAttribute("userID");
-		}
+		} //로그인 할때 입력한 거 여기에
 	%>
 	<nav class="navbar navbar-default">
 	
@@ -39,7 +39,7 @@
 			</ul>
 			
 			<% 
-				if(userID == null){
+				if(userID == null){ //로그인 안되어있지 않을 때
 			%>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
@@ -53,7 +53,7 @@
 				</li>	
 			</ul>
 			<%
-				}else {
+				}else { //로그인 되있을때
 			%>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">

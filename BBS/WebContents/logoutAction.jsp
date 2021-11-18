@@ -8,7 +8,7 @@ pageEncoding="UTF-8"%> <!-- 페이지 전체의 속성을 정의 -->
 </head>
 <body>
    <%
-      session.invalidate();
+      session.invalidate(); //간단하게 말해서 현재 세션을 제거! (로그아웃)
    %>
    <script>
       location.href = 'main.jsp';
