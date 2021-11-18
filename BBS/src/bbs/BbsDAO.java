@@ -72,15 +72,15 @@ public class BbsDAO {
 		}
 		    //글 작성 하는 메소드 
 			public int write(String bbsTitle, String userID, String bbsContent) {
-				String SQL ="INSERT INTO BBS VALUES (?, ?, ?, ?, ?, ?)";
+				String SQL ="INSERT INTO BBS VALUES (?, ?, ?, sysdate, ?, ?)";
 				try {
 					PreparedStatement pstmt = conn.prepareStatement(SQL);
 					pstmt.setInt(1,  getNext());
 					pstmt.setString(2,  bbsTitle);
 					pstmt.setString(3,  userID);
-					pstmt.setString(4,  getDate());
-					pstmt.setString(5,  bbsContent);
-					pstmt.setInt(6,  1); //현재 글이 삭제되었는지
+					//pstmt.setString(4,  getDate());
+					pstmt.setString(4,  bbsContent);
+					pstmt.setInt(5,  1); //현재 글이 삭제되었는지
 					return pstmt.executeUpdate(); //성공적으로 수행 -> 0이상 값 return
 					
 				}catch (Exception e) {

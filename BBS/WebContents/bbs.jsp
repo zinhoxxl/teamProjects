@@ -13,6 +13,13 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 
 <title>JSP 웹 사이트 게시판</title>
+
+<style type="text/css">
+    a, a:hover{
+       color: #000000;
+       text-decoration: none;
+    }
+</style>
 </head>
 
 <body>
