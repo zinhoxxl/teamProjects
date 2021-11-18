@@ -4,6 +4,8 @@
 <%@ page import ="bbs.BbsDAO" %>
 <%@ page import ="bbs.Bbs" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html>
 

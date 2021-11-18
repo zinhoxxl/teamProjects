@@ -1,6 +1,8 @@
   package bbs;
 
 import java.sql.Connection;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
