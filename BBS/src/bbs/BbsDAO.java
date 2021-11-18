@@ -1,7 +1,6 @@
   package bbs;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,35 +24,21 @@ public class BbsDAO {
 	        }
 	    }
 	    // 시간 가져오는 메소드
-	    public String getDate() {
-	        String sql = "SELECT TO_CHAR(SYSDATE, 'RRRR-MM-DD hh24:mi:ss') FROM DUAL";
-	        try {
-	            PreparedStatement pstmt = conn.prepareStatement(sql);
-	            rs = pstmt.executeQuery();
-	            if (rs.next()) {
-	                return rs.getString(1);
-	            }
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }
-	        return ""; //데이터베이스 오류
-	        
-	    }
-	
-		
-//	     public Date getDate() {
-//		 String SQL ="SELECT to_char(sysdate, 'YYYY-MM-DD HH24:MI:SS') today FROM dual;";
-//			try {
-//				PreparedStatement pstmt = conn.prepareStatement(SQL);
-//				rs = pstmt.executeQuery();
-//				if(rs.next()) {
-//					return rs.getDate(1);
-//				}
-//			}catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		return null;
-//		}
+//	    public String getDate() {
+//	        String SQL = "SELECT SYSDATE FROM DUAL";
+//	        try {
+//	            PreparedStatement pstmt = conn.prepareStatement(SQL);
+//	            rs = pstmt.executeQuery();
+//	            if (rs.next()) {
+//	                return rs.getString(1);
+//	            }
+//	        } catch (Exception e) {
+//	            e.printStackTrace();
+//	        }
+//	        return ""; //데이터베이스 오류
+//	        
+//	    }
+
 
 		//다음 게시글 번호: 마지막에 작성 게시글 번호 +1
 		public int getNext() {
@@ -75,12 +60,12 @@ public class BbsDAO {
 				String SQL ="INSERT INTO BBS VALUES (?, ?, ?, sysdate, ?, ?)";
 				try {
 					PreparedStatement pstmt = conn.prepareStatement(SQL);
-					pstmt.setInt(1,  getNext());
-					pstmt.setString(2,  bbsTitle);
-					pstmt.setString(3,  userID);
-					//pstmt.setString(4,  getDate());
-					pstmt.setString(4,  bbsContent);
-					pstmt.setInt(5,  1); //현재 글이 삭제되었는지
+					pstmt.setInt(1, getNext());
+					pstmt.setString(2, bbsTitle);
+					pstmt.setString(3, userID);
+					//pstmt.setString(4, getDate());
+					pstmt.setString(4, bbsContent);
+					pstmt.setInt(5, 1); //현재 글이 삭제되었는지
 					return pstmt.executeUpdate(); //성공적으로 수행 -> 0이상 값 return
 					
 				}catch (Exception e) {
@@ -124,7 +109,30 @@ public class BbsDAO {
 				}
 				return false;
 			}
-	}
+			
+			public Bbs getBbs(int bbsID) {
+				String SQL = "SELECT * FROM BBS WHERE bbsID= ?";
+				try {
+					PreparedStatement pstmt = conn.prepareStatement(SQL);
+					pstmt.setInt(1, bbsID);
+					rs = pstmt.executeQuery();
+					if (rs.next()) {
+						Bbs bbs = new Bbs();
+						bbs.setBbsID(rs.getInt(1));
+						bbs.setBbsTitle(rs.getString(2));
+						bbs.setUserID(rs.getString(3));
+						bbs.setBbsDate(rs.getString(4));
+						bbs.setBbsContent(rs.getString(5));
+						bbs.setBbsAvailable(rs.getInt(6));
+						return bbs;
+					}
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+				return null;
+			}
+			
+		}
 
 
 
