@@ -98,10 +98,10 @@ public class BbsDAO {
 				return list;
 			}
 			public boolean nextPage(int pageNumber) {
-				String SQL = "SELECT * FROM (SELECT * FROM BBS WHERE bbsID < ? AND bbsAvailable = 1)";
+				String sql = "SELECT * FROM (SELECT * FROM BBS WHERE bbsID < ? AND bbsAvailable = 1)";
 				try {
-					PreparedStatement pstmt = conn.prepareStatement(SQL);
-					pstmt.setInt(1, getNext() - (pageNumber -1) * 10);
+					PreparedStatement pstmt = conn.prepareStatement(sql);
+					pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
 					rs = pstmt.executeQuery();
 					if(rs.next()) {
 						return true;
@@ -113,9 +113,9 @@ public class BbsDAO {
 			}
 			
 			public Bbs getBbs(int bbsID) {
-				String SQL = "SELECT * FROM BBS WHERE bbsID= ?";
+				String sql = "SELECT * FROM BBS WHERE bbsID= ?";
 				try {
-					PreparedStatement pstmt = conn.prepareStatement(SQL);
+					PreparedStatement pstmt = conn.prepareStatement(sql);
 					pstmt.setInt(1, bbsID);
 					rs = pstmt.executeQuery();
 					if (rs.next()) {
