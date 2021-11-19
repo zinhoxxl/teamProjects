@@ -59,7 +59,7 @@ public class BbsDAO {
 		}
 		    //글 작성 하는 메소드 
 			public int write(String bbsTitle, String userID, String bbsContent) {
-				String SQL ="INSERT INTO BBS VALUES (?, ?, ?, sysdate, ?, ?)";
+				String SQL ="INSERT INTO BBS VALUES (?, ?, ?, current_date, ?, ?)";
 				try {
 					PreparedStatement pstmt = conn.prepareStatement(SQL);
 					pstmt.setInt(1, getNext());
