@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%> <%-- 인코딩설정 --%>
 <!DOCTYPE html>
 <html>
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset="UTF-8">
-<meta name="viewport" content="width=device-width" , initial-scale="1">
+<meta name="viewport" content="width=device-width" , initial-scale="1"> <%-- 반응형웹으로 설정 --%>
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/custom.css">
 
@@ -16,22 +16,26 @@
 
 	<nav class="navbar navbar-default">
 	
+	    <%-- 로고영역 --%>
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed"
-				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-				aria-expanded="false">
+				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" 
+				aria-expanded="false"> <%-- 버튼만들기 --%>
 				<span class="icon-bar"></span> <!-- 석삼자의 메뉴 작대기 하나를 담당-->
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class ="navbar-brand" href="main.jsp"> 게시판 웹 사이트 </a>
+			<%-- brand == 로고 --%>
+			<a class ="navbar-brand" href="main.jsp">JSP 게시판 웹 사이트 </a>
 		</div>
-		
+		<%-- 헤더와 같은 bs-example-navbar-collapse-1 사용 --%>
 		<div class ="collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
+		    <%-- 리스트 --%>
 			<ul class="nav navbar-nav">
 				<li><a href="main.jsp">메인</a></li>
-				<li><a href="bbs.jsp">게시판</a></li>
+				<li><a href="bbs.jsp">게시판</a></li>  <%-- 리스트 원소 기입 --%>
 			</ul>
+			<%-- 우측 네비게이션 --%>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a href ="#" class ="dropdown-toggle"
@@ -71,8 +75,8 @@
 		<div class=	"col-lg-4"></div>		
 	</div>
 	
-		
-	<script src ="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<%-- 2강 --%>	
+	<script src ="https://code.jquery.com/jquery-3.1.1.min.js"></script>  
 	<script src ="js/bootstrap.js"></script>
 	
 		
