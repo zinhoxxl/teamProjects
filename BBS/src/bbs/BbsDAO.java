@@ -148,6 +148,21 @@ public class BbsDAO {
 				}
 				return -1;//데이터베이스 오류 
 			}
+			
+			//게시글 삭제 메소드
+			public int delete(int bbsID) {
+				//실제 데이터를 삭제하는 것이 아니라 게시글 유효숫자를 '0'으로 수정한다
+				String sql = "update bbs set bbsAvailable = 0 where bbsID = ?";
+				try {
+					PreparedStatement pstmt = conn.prepareStatement(sql);
+					pstmt.setInt(1, bbsID);
+					return pstmt.executeUpdate();
+				}catch (Exception e) {
+					e.printStackTrace();
+				}
+				return -1; //데이터베이스 오류 
+			}
+			
 		}
 
 
