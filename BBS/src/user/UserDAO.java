@@ -17,10 +17,10 @@ public class UserDAO {
             String dbURL = "jdbc:oracle:thin:@db202110231136_high?TNS_ADMIN=/Users/alpha/oracle/Wallet_DB202110231136";
             String dbID = "BBS";
             String dbPassword = "Oracle12345678";
-            Class.forName("oracle.jdbc.OracleDriver"); //mysql에 접속할 수 있도록 매개체 역할을 하는 라이브러리
+            Class.forName("oracle.jdbc.OracleDriver"); //오라클 에 접속할 수 있도록 매개체 역할을 하는 라이브러리
             conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(); //오류가 어떤건지 알려줌
         }
     }
 
