@@ -46,7 +46,7 @@ pageEncoding="UTF-8"%> <!-- 페이지 전체의 속성을 정의 -->
         UserDAO userDAO = new UserDAO();
         int result = userDAO.login(user.getUserID(), user.getUserPassword());
         if (result == 1) {
-        	session.setAttribute("userID", user.getUserID());  
+        	session.setAttribute("userID", user.getUserID()); /* 7장 시작 */
         	PrintWriter script = response.getWriter();
         	script.println("<script>");
         	script.println("location.href = 'main.jsp'");

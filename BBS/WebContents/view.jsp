@@ -21,11 +21,12 @@
 		if(session.getAttribute("userID") != null){
 		userID = (String) session.getAttribute("userID");
 		}
+		//12장
 		int bbsID = 0;
 		if(request.getParameter("bbsID") != null) {
 			bbsID = Integer.parseInt(request.getParameter("bbsID"));
 		}
-		if(bbsID == 0) {
+		if(bbsID == 0) { //번호가 반드시존재해야 게시글 열람가능! 
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('유효하지 않은 글입니다.')");
@@ -105,7 +106,7 @@
 	            </tr>
 	             <tr>
 	              <td>작성자</td>
-	              <td colspan="2"><%= bbs.getUserID() %></td>
+	              <td colspan="2"><%= bbs.getUserID() %></td> 
 	            </tr>
 	             <tr>
 	              <td>작성일자</td>
@@ -119,9 +120,9 @@
 	            </tr>
 	       </tbody>
 	      </table>
-	       <a href="bbs.jsp" class="btn btn-primary">목록</a>
+	       <a href="bbs.jsp" class="btn btn-primary">목록</a> <%-- 목록으로 돌아가는 버튼 --%>
 	       <%
-	          if(userID != null && userID.equals(bbs.getUserID())) {
+	          if(userID != null && userID.equals(bbs.getUserID())) { //작성자 본인이면 수정가능
 	       %> 	  
 	        	  <a href="update.jsp?bbsID=<%=bbsID %>" class="btn btn-primary">수정</a>
 	        	  <a onclick="return confirm('정말로 삭제하시겠습니까?')"  href="deleteAction.jsp?bbsID=<%=bbsID %>" class="btn btn-primary">삭제</a>

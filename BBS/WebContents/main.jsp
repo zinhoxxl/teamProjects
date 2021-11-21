@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -52,7 +52,7 @@
 						aria-expanded="false">접속하기<span class="caret"></span></a>
 					<!-- 드랍다운 아이템 영역 -->	
 					<ul class="dropdown-menu">
-						<li><a href="login.jsp">로그인</a></li>
+						<li><a href="login.jsp">로그인</a></li> <%-- 7장  --%>
 						<li><a href="join.jsp">회원가입</a></li>
 					</ul>
 				</li>

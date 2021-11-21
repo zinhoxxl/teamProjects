@@ -48,7 +48,7 @@ pageEncoding="UTF-8"%> <!-- 페이지 전체의 속성을 정의 -->
 					script.println("</script>");
 			
 				}else {
-					session.setAttribute("userID", user.getUserID());
+					session.setAttribute("userID", user.getUserID()); /* 7장 */
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
 					script.println("location.href = 'main.jsp'");

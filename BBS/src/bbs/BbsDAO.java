@@ -112,11 +112,12 @@ public class BbsDAO {
 				return false;
 			}
 			
+			//12장
 			public Bbs getBbs(int bbsID) {
 				String sql = "SELECT * FROM BBS WHERE bbsID= ?";
 				try {
 					PreparedStatement pstmt = conn.prepareStatement(sql);
-					pstmt.setInt(1, bbsID);
+					pstmt.setInt(1, bbsID); //bbsID에 해당하는 글을 가져옴
 					rs = pstmt.executeQuery();
 					if (rs.next()) {
 						Bbs bbs = new Bbs();
